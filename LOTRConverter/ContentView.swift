@@ -10,6 +10,8 @@ import SwiftUI
 struct ContentView: View {
     //declaring a new stored property
     @State var showExchangeInfo = false //let -> constant
+    @State var leftAmount = ""
+    @State var rightAmount = ""
     // @State lets us change the state of the property even though it is inside struct.
     
     
@@ -52,8 +54,11 @@ struct ContentView: View {
                                 .font(.headline)
                                 .foregroundStyle(.white)
                         }
+                        .padding(.bottom, -5)
                         //text field
-                        Text("Textfield")
+                        TextField("Amount", text: $leftAmount) //Binding String : to make user have the ability to change the textfeild. Starts with a $ sign.
+                            .textFieldStyle(.roundedBorder)
+                            
                     }
                     // equal sign
                     Image(systemName: "equal")
@@ -74,11 +79,17 @@ struct ContentView: View {
                                 .scaledToFit()
                                 .frame(height: 33)
                         }
+                        .padding(.bottom, -5)
                         //Text field
-                        Text("Textfield")
+                        TextField("Amount", text: $rightAmount)
+                            .textFieldStyle(.roundedBorder).multilineTextAlignment(.trailing)
                     }
+                  
                     
                 }
+                .padding()
+                .background(.black.opacity(0.5))
+                .clipShape(.capsule)
                 Spacer()
                 // info button
                 
