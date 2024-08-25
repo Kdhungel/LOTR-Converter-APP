@@ -8,6 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
+    //declaring a new stored property
+    @State var showExchangeInfo = false //let -> constant
+    // @State lets us change the state of the property even though it is inside struct.
+    
+    
+    
+    
     var body: some View {
         ZStack{
             // Background image
@@ -74,9 +81,16 @@ struct ContentView: View {
                 }
                 Spacer()
                 // info button
-                Image(systemName: "info.circle.fill")
-                    .font(.largeTitle)
-                    .foregroundStyle(.white)
+                
+                Button{
+                    showExchangeInfo = true
+                    
+                } label: {
+                    Image(systemName: "info.circle.fill")
+                        .font(.largeTitle)
+                        .foregroundStyle(.white)
+                }
+
             }
             .border(.blue)
         }
